@@ -57,6 +57,8 @@ class ItemDiscountReport(ItemDiscount):
     def get_parent_data(self):
         return f'name: {self.get_name()}; price: {self.get_price()}'
 
+    #не ясно, как разделить класс???
+
     def get_info(self):
         return f'name: {self.get_name()}'
         #return f'price :{price_with_discount}'
