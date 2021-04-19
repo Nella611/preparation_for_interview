@@ -45,32 +45,51 @@ class ItemDiscount:
         return self.__str__()
 
 
-class ItemDiscountReport(ItemDiscount):
+class ItemDiscountReport_1(ItemDiscount):
     def __init__(self, name, price, discount):
         super().__init__(name, price)
         self.discount = discount
+        self.price_with_discount = self.get_price() - (self.get_price() * self.discount // 100)
 
     def __str__(self):
-        price_with_discount = self.get_price() - (self.get_price() * self.discount // 100)
-        return f'name: {self.get_name()}; price: {price_with_discount}'
+
+        return f'name: {self.get_name()}; price: {self.price_with_discount}'
 
     def get_parent_data(self):
         return f'name: {self.get_name()}; price: {self.get_price()}'
 
-    #не ясно, как разделить класс???
 
     def get_info(self):
         return f'name: {self.get_name()}'
-        #return f'price :{price_with_discount}'
 
+
+class ItemDiscountReport_2(ItemDiscount):
+    def __init__(self, name, price, discount):
+        super().__init__(name, price)
+        self.discount = discount
+        self.price_with_discount = self.get_price() - (self.get_price() * self.discount // 100)
+
+    def __str__(self):
+        return f'name: {self.get_name()}; price: {self.price_with_discount}'
+
+    def get_parent_data(self):
+        return f'name: {self.get_name()}; price: {self.get_price()}'
+
+    def get_info(self):
+        return f'price: {self.price_with_discount}'
 
 
 parent = ItemDiscount('first', 5)
-inheritor = ItemDiscountReport('second', 10, 3)
+inheritor = ItemDiscountReport_1('second', 10, 3)
+inheritor2 = ItemDiscountReport_2('second', 10, 3)
 
 print(parent)
 print(inheritor)
 print(inheritor.new_price(100))
 print(inheritor.get_parent_data())
 print(inheritor)
+print(inheritor.get_info())
+print(inheritor2.get_info())
+
+
 
