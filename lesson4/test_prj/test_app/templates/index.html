@@ -1,0 +1,44 @@
+{% extends 'catalog.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Главная</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="conteiner">
+        <h1>Главная страница</h1>
+
+        <h3>Товары:</h3>
+
+        <a class="popup-open" href="#">Добавить новый товар</a>
+
+        <div class="popup-fade">
+            <div class="popup">
+                <a class="popup-close" href="#">Закрыть</a>
+                <h3>Добавление товара</h3>
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Отправить">
+                </form>
+            </div>
+        </div>
+
+        <div class="row" id="test"></div>
+
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+
+

@@ -2,9 +2,20 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Все товары</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    {% block title %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap.min.css' %}">
+
+    {% block css%} {% endblock %}
+    <script src="{% static 'vendor/js/jquery-3.6.0.min.js' %}"></script>
 </head>
+
+
 <body>
+{% block content %}
     <h1>{{ page_header }}</h1>
 
 {% load static %}
